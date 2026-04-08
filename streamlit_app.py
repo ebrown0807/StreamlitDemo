@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-st.title("Streamlit Demo")
+st.markdown("<h1 style='color: white; ' >Stremlit Demo</h1>", unsafe_allow_html=True)
 
 @st.cache_data
 def load_data():
@@ -27,7 +27,7 @@ df["Cluster"] = kmeans.fit_predict(df_clean)
 st.subheader("Cluster Visualization")
 
 fig, ax = plt.subplots()
-ax.scatter(df[x_axis], df[y_axis], c=df["Cluster"])
+ax.scatter(df[x_axis], df[y_axis], c=df["Cluster"], cmap="viridis")
 ax.set_xlabel(x_axis)
 ax.set_ylabel(y_axis)
 ax.set_title("K-Means Clusters")
